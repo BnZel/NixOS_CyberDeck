@@ -3,9 +3,7 @@ A cyberdeck project based on the **Intel Compute Stick** that is running **NixOS
 
 ![NixOS Cyberdeck Logo](https://bnzel.github.io/assets/img/nixos_cyberdeck/thumb_nixos_cyberdeck_logo.jpg)
 
-<video width="900" height="1600" controls>
-    <source src="{{ './demos/demo.mp4' | relative_url }}" type="video/mp4" >
-</video>
+https://github.com/user-attachments/assets/1449d1bb-dcd8-46d2-952f-5a30e3d01839
 
 ## Background
 

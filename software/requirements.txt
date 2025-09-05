@@ -34,3 +34,4 @@ sysv_ipc==1.1.0
 typing_extensions==4.12.2
 urllib3==2.2.3
 woolseyworkshop-circuitpython-74hc165==1.0.0
+black==25.1.0

@@ -38,7 +38,7 @@ As I am limited by Intel's proprietary hardware, modifications are only on softw
 
 ### Hardware Addon
 
-* **[Orico USB3.0 Hub with Gigabit Ethernet Converter](https://www.orico.shop/en/orico-usb30-hub-with-gigabit-ethernet-converter.html)**
+* **[Orico USB3.0 Hub with Gigabit Ethernet Converter](https://www.orico.shop/en/orico-usb30-hub-with-gigabit-ethernet-converter.html)** OR **[UNITEK H1117A02 4 Ports USB-A 3.0 Hub](https://www.canadacomputers.com/en/usb-hubs/260566/unitek-4-ports-usb-a-3-0-hub-h1117a02.html)** *(recommended as there is an external power supply to avoid pulling current from the deck itself)*
 * **[Riitek Wireless Keyboard V3](http://www.riitek.com/product/221.html)**
 * **USB Hub Voltage & Current Tester**
 * **[AdaFruit FT232H (USB-C)](https://learn.adafruit.com/adafruit-ft232h-breakout)**

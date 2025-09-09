@@ -33,13 +33,18 @@ import random
 import csv
 import sys
 
-
 spi = busio.SPI(clock=SCK, MOSI=MOSI, MISO=MISO)
 
 # sd_mount status: EXIT_STATUS (1 or 0) for mounted microsd card
 # sd_mount_date: CSV filename to write to in write_to_sd(data) function
-sd_mount_status = sys.argv[1]
-sd_mount_date = sys.argv[2]
+# sd_mount_status = sys.argv[1]
+sd_mount_date = sys.argv[1]
+
+gps_ser = serial.Serial(
+    "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0",
+    9600,
+    timeout=1,
+)
 
 
 def init_display(disp, cs, dc, reset, rotate, w, h, x_off, y_off, BAUDRATE=24000000):
@@ -82,8 +87,9 @@ def draw_image(disp, width, height, fill=0):
     return disp_image, disp_draw
 
 
+# retrieve barometric sensor data
+# display it onto the round display
 async def bmp280_task():
-    #    if btn_toggle.value is False:
     gca_draw.rectangle(
         (0, 0, disp_gc9a01.width, disp_gc9a01.height // 2 - 30), fill=(155, 50, 0)
     )
@@ -98,15 +104,12 @@ async def bmp280_task():
         font=gca_bmp_font,
         fill=(255, 255, 0),
     )
-    #        gca_draw.text(
-    # (disp_gc9a01.width//2-70, disp_gc9a01.height//2-100),
-    # f"{random.randint(0,100)}",
-    # font=gca_font,
-    #            fill=(255,255,0),
-    #        )
+
     disp_gc9a01.image(gca_image)
 
 
+# NOTE: currently not used
+#       might return if needed...
 async def cam_task():
     if btn_toggle.value is True:
         ret, frame = cap.read()
@@ -124,10 +127,11 @@ async def cam_task():
 
 
 async def async_main():
-    # await asyncio.gather(bmp280_task(),cpu_task(),cam_task(),gps_task())
     await asyncio.gather(bmp280_task(), cpu_task(), gps_task())
 
 
+# monitors systems cpu temperature, cpu load, memory usage
+# and displays them onto the round display
 async def cpu_task():
     st7789_draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
@@ -156,20 +160,17 @@ async def cpu_task():
     disp_st7789.image(st7789_image)
 
 
+# display gps GPRMC
+# data onto LCD
 async def gps_task():
 
-    with serial.Serial(
-        "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0",
-        9600,
-        timeout=1,
-    ) as ser:
+    dt = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+    data = gps_ser.readline().decode("ascii", errors="replace")
 
-        data = ser.readline().decode("ascii", errors="replace")
-        dt = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
+    if data[0:6] == "$GPRMC":
+        lcd.clear()
 
-        if data[0:6] == "$GPRMC":
-            lcd.clear()
-
+        try:
             gps_data = pynmea2.parse(data)
 
             lon = gps_data.longitude
@@ -177,22 +178,52 @@ async def gps_task():
             dir_lat = gps_data.lat_dir
             dir_lon = gps_data.lon_dir
 
-            write_to_sd(
-                {
-                    "datetime": dt,
-                    "longitude": lon,
-                    "lon_dir": dir_lon,
-                    "latitude": lat,
-                    "lat_dir": dir_lat,
-                }
-            )
+            # based on how much is batched
+            # write to sd or locally
+            # clear and continue process
+            if len(gps_batch) is LEN:
+                # write_to_sd(gps_batch)
+                write_to_local(gps_batch)
+                gps_batch.clear()
+            else:
+                gps_batch.append(
+                    {
+                        "datetime": dt,
+                        "longitude": lon,
+                        "lon_dir": dir_lon,
+                        "latitude": lat,
+                        "lat_dir": dir_lat,
+                    }
+                )
+                print(gps_batch)
+                lcd.message = "{0:.3f} {1:.3f}".format(lon, lat)
 
-            lcd.message = "{0:.3f} {1:.3f}".format(lon, lat)
-            print(lcd.message)
+        # ignoring the checksum error when GPS
+        # is having issues collecting appropriate data
+        except (pynmea2.ChecksumError, pynmea2.ParseError) as gps_e:
+            print(f"Error parsing data {repr(gps_e)}")
 
-        lcd.message = "\n{0}".format(dt)
+    lcd.message = "\n{0}".format(dt)
 
 
+# opens and writes local CSV file
+# within the ./mnt/microsd directory
+def write_to_local(data):
+    with open(f"{sd_mount_date}", "a+") as gps_file:
+
+        print(f"writing {data}")
+        gps_writer = csv.DictWriter(gps_file, fieldnames=field_names, delimiter=",")
+
+        if not os.path.exists(sd_mount_date):
+            gps_write.writeheader()
+        gps_writer.writerows(data)
+
+
+# NOTE: ON HOLD........
+#       microsd card currently has issues
+#       mounting it causes system-wide crashes
+#       however fdisk -l recognizes it
+#       fsck is able to run sometimes
 def write_to_sd(data):
     if int(sd_mount_status) == 0:
         print(f"opening {sd_mount_date}")
@@ -203,7 +234,7 @@ def write_to_sd(data):
             if not os.path.exists(sd_mount_date):
                 gps_writer.writeheader()
 
-            gps_writer.writerow(data)
+            gps_writer.writerows(data)
 
 
 if __name__ == "__main__":
@@ -333,6 +364,13 @@ if __name__ == "__main__":
 
     lcd.clear()
 
+    # writing gps data in N batches
+    # to avoid wearing out sdcard
+    # and causing system crashes
+    # by constantly opening and closing file
+    gps_batch = []
+    LEN = 5
+
     # gracefully exit when CTRL+C
     try:
         while True:
@@ -343,5 +381,5 @@ if __name__ == "__main__":
         #       cap.release()
         lcd.clear()
         lcd.backlight = False
-        os._exit(1)
+        sys.exit(0)
         print("\nCancelled...")

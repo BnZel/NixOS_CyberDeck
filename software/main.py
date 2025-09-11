@@ -35,10 +35,11 @@ import sys
 
 spi = busio.SPI(clock=SCK, MOSI=MOSI, MISO=MISO)
 
-# sd_mount status: EXIT_STATUS (1 or 0) for mounted microsd card
-# sd_mount_date: CSV filename to write to in write_to_sd(data) function
-# sd_mount_status = sys.argv[1]
-sd_mount_date = sys.argv[1]
+# files created or reopened
+# from run_py.sh 1 2 3
+gps_csv_file = sys.argv[1]
+baro_csv_file = sys.argv[2]
+cpu_csv_file = sys.argv[3]
 
 gps_ser = serial.Serial(
     "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0",
@@ -107,6 +108,22 @@ async def bmp280_task():
 
     disp_gc9a01.image(gca_image)
 
+    if len(baro_batch) is LEN:
+        write_to_local(baro_batch, baro_csv_file, baro_field_names)
+        print("clearing batch data....\n")
+        baro_batch.clear()
+    else:
+        print("===================BAROMETRIC BATCH===================")
+        baro_batch.append(
+            {
+                "temperature (C)": bmp280.temperature,
+                "pressure (hPA)": bmp280.pressure,
+                "altitude (M)": bmp280.altitude,
+            }
+        )
+        print(f"BATCH {len(baro_batch)}\n{baro_batch}\n\n")
+        print("=======================================================")
+
 
 # NOTE: currently not used
 #       might return if needed...
@@ -156,8 +173,39 @@ async def cpu_task():
     st7789_draw.text((x, y + 70), cpu_load, font=st7789_font, fill="#00FF00")
     st7789_draw.text((x, y + 100), mem, font=st7789_font, fill="#000FF0")
 
+    raw_cpu_temp = subprocess.check_output(
+        "cat /sys/class/thermal/thermal_zone1/temp |  awk '{printf \" %.1f\", $(NF-0) / 1000}'",
+        shell=True,
+    ).decode("utf-8")
+    raw_cpu_load = subprocess.check_output(
+        "top -bn1 | grep load | awk '{printf \"%.2f\", $(NF-2)}'", shell=True
+    ).decode("utf-8")
+    raw_cpu_mem = subprocess.check_output(
+        "free -m | awk 'NR==2{printf \"%s/%s\", $3,$2}'", shell=True
+    ).decode("utf-8")
+    raw_cpu_mem_per = subprocess.check_output(
+        "free -m | awk 'NR==2{printf \"%.2f\",$3*100/$2 }'", shell=True
+    ).decode("utf-8")
+
     # display it by 90 deg
     disp_st7789.image(st7789_image)
+
+    if len(cpu_batch) is LEN:
+        write_to_local(cpu_batch, cpu_csv_file, cpu_field_names)
+        print("clearing batch data....\n")
+        cpu_batch.clear()
+    else:
+        print("===================CPU BATCH===================")
+        cpu_batch.append(
+            {
+                "temperature (C)": raw_cpu_temp,
+                "load": raw_cpu_load,
+                "memory usage (MB)": raw_cpu_mem,
+                "memory usage (%)": raw_cpu_mem_per,
+            }
+        )
+        print(f"BATCH {len(cpu_batch)}\n{cpu_batch}\n\n")
+        print("================================================")
 
 
 # display gps GPRMC
@@ -179,13 +227,14 @@ async def gps_task():
             dir_lon = gps_data.lon_dir
 
             # based on how much is batched
-            # write to sd or locally
+            # write locally
             # clear and continue process
             if len(gps_batch) is LEN:
-                # write_to_sd(gps_batch)
-                write_to_local(gps_batch)
+                write_to_local(gps_batch, gps_csv_file, gps_field_names)
+                print("clearing batch data....\n")
                 gps_batch.clear()
             else:
+                print("===================GPS BATCH===================")
                 gps_batch.append(
                     {
                         "datetime": dt,
@@ -195,43 +244,48 @@ async def gps_task():
                         "lat_dir": dir_lat,
                     }
                 )
-                print(gps_batch)
+                print(f"BATCH {len(gps_batch)}\n{gps_batch}\n\n")
+                print("===============================================")
                 lcd.message = "{0:.3f} {1:.3f}".format(lon, lat)
 
         # ignoring the checksum error when GPS
         # is having issues collecting appropriate data
-        except (pynmea2.ChecksumError, pynmea2.ParseError) as gps_e:
-            print(f"Error parsing data {repr(gps_e)}")
+        except (pynmea2.ChecksumError, pynmea2.ParseError) as gps_e_cs:
+            print(f"Checksum Error: {gps_e_cs}")
+
+        # ignore valueerror to prevent script from starting
+        except ValueError as gps_e_ve:
+            print(f"ValueError: {gps_e_ve}")
 
     lcd.message = "\n{0}".format(dt)
 
 
 # opens and writes local CSV file
 # within the ./mnt/microsd directory
-def write_to_local(data):
-    with open(f"{sd_mount_date}", "a+") as gps_file:
+def write_to_local(data, file, field_names):
+    with open(f"{file}", "a+") as csv_file:
 
-        print(f"writing {data}")
-        gps_writer = csv.DictWriter(gps_file, fieldnames=field_names, delimiter=",")
+        print(f"WRITING TO {file}.....\n")
+        csv_writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter=",")
 
-        if not os.path.exists(sd_mount_date):
-            gps_write.writeheader()
-        gps_writer.writerows(data)
+        if not os.path.exists(file):
+            csv_write.writeheader()
+        csv_writer.writerows(data)
 
 
-# NOTE: ON HOLD........
+# NOTE: WORK IN PROGRESS........
 #       microsd card currently has issues
 #       mounting it causes system-wide crashes
 #       however fdisk -l recognizes it
 #       fsck is able to run sometimes
-def write_to_sd(data):
+def write_to_sd(data, file):
     if int(sd_mount_status) == 0:
-        print(f"opening {sd_mount_date}")
-        with open(f"{sd_mount_date}", "a+") as gps_file:
+        print(f"opening {file}")
+        with open(f"{file}", "a+") as csv_file:
             print(f"writing {data}")
-            gps_writer = csv.DictWriter(gps_file, fieldnames=field_names, delimiter=",")
+            gps_writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter=",")
 
-            if not os.path.exists(sd_mount_date):
+            if not os.path.exists(file):
                 gps_writer.writeheader()
 
             gps_writer.writerows(data)
@@ -294,8 +348,6 @@ if __name__ == "__main__":
         ),
     )
 
-    # writing to csv file
-    field_names = ["datetime", "longitude", "lon_dir", "latitude", "lat_dir"]
     # write_to_sd("hello world!")
 
     # camera check
@@ -364,11 +416,22 @@ if __name__ == "__main__":
 
     lcd.clear()
 
-    # writing gps data in N batches
-    # to avoid wearing out sdcard
-    # and causing system crashes
+    # csv headers for each hardware
+    gps_field_names = ["datetime", "longitude", "lon_dir", "latitude", "lat_dir"]
+    baro_field_names = ["temperature (C)", "pressure (hPA)", "altitude (M)"]
+    cpu_field_names = [
+        "temperature (C)",
+        "load",
+        "memory usage (MB)",
+        "memory usage (%)",
+    ]
+
+    # writing gps, barometric, cpu data in N batches
+    # preventing system crashes
     # by constantly opening and closing file
     gps_batch = []
+    baro_batch = []
+    cpu_batch = []
     LEN = 5
 
     # gracefully exit when CTRL+C

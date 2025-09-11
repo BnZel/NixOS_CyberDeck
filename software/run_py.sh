@@ -2,22 +2,34 @@ MOUNT="./mnt/microsd"
 SD_LOC="/dev/mmcblk1p1"
 UUID_DISK="0403-0201"
 DATE=$(date "+%Y-%m-%d");
-CSV_FILE="$MOUNT/$DATE.csv"
+GPS_CSV_FILE="$MOUNT/gps_$DATE.csv"
+BARO_CSV_FILE="$MOUNT/baro_$DATE.csv"
+CPU_CSV_FILE="$MOUNT/cpu_$DATE.csv"
 
 # creates a CSV file based on current date
+# first checks if $MOUNT directory exists
+# creates it if it doesn't
 # if csv exists, give all 777 permissions
-# for python script to write to micro sdcard
+# for python script to open and write
 # otherwise create the CSV within the mount directory
 # and give 777 permissions
 file_check () {
-  if test -f $CSV_FILE; then
-    echo "$CSV_FILE File exists!"
-    echo "1875" | sudo -S chmod 777 $CSV_FILE
+  if test -d $MOUNT; then
+    echo "$MOUNT exists!"
+  else
+    echo "Creating $MOUNT...."
+    echo "YOURPASSWORD" | sudo -S mkdir $MOUNT
+    echo "YOURPASSWORD" | sudo -S chmod 777 $MOUNT
+  fi
+
+  if test -f $1; then
+    echo "$1 File exists!"
+    echo "YOURPASSWORD" | sudo -S chmod 777 $1
     return 0
   else
-    echo "Creating ${DATE}.csv"
-    echo "1875" | sudo -S touch $CSV_FILE
-    echo "1875" | sudo -S chmod 777 $CSV_FILE
+    echo "Creating ${1}"
+    echo "YOURPASSWORD" | sudo -S touch $1
+    echo "YOURPASSWORD" | sudo -S chmod 777 $1
     return 1
   fi
 }
@@ -40,25 +52,16 @@ mount_check () {
   else
       echo "$MOUNT is NOT mounted...";
       echo "Attempting to mount...";
- #    fdisk -l
- #    e2fsck -pfv UUID=$UUID_DISK
- #    echo "1875" | sudo -S dosfsck -t $SD_LOC
- #    echo "1875" | sudo -S mount UUID=$UUID_DISK $MOUNT
-
       file_check
       echo "mountpoint returned 1";
       return 1
   fi
 }
 
-
-
-# will use to pass as argument 1
-# in the main.py to confirm successful mount
-EXIT_STATUS=$?
-
 # auto-formatter for ease of use in a text editor
-# then pass filename as argument 2 to write data to
-file_check
+# then pass filenames as arguments to write data
+file_check $GPS_CSV_FILE
+file_check $BARO_CSV_FILE
+file_check $CPU_CSV_FILE
 black main.py
-python3 main.py $CSV_FILE
+python3 main.py $GPS_CSV_FILE $BARO_CSV_FILE $CPU_CSV_FILE

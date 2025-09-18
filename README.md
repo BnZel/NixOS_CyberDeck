@@ -5,6 +5,12 @@ A cyberdeck project based on the **Intel Compute Stick** that is running **NixOS
 
 https://github.com/user-attachments/assets/1449d1bb-dcd8-46d2-952f-5a30e3d01839
 
+#### Field Testing
+![outdoor_testing](./demos/outdoor_testing.jpg)
+
+### Directory:
+* [NixOS Database Analysis](./analysis/READMD.md)
+
 ## Background
 
 ### Intel Compute Stick
@@ -79,7 +85,7 @@ The **BMP280** had encountered an error where the chip is not recognized. This w
 
 **GC9A01** is to display data from **BMP280**, **ST7789** to view the cyberdecks cpu: temperature, load, memory resource. The **LCD** shows date-time and **GPS** location. 
 
-![schematic](./images/schematic.jpg)
+![schematic](./images/schematics/schematic.jpg)
 
 A **SPST switch** in **D4** was suppose to be to activate a webcam stream but was not necessary for the moment.
 
@@ -88,14 +94,14 @@ In my blog post, I mentioned wanting a more compact design, so my approach was t
 #### First Layer:
 This were the FT232H sits, it will provide pins and **5V**, **3.3V**, **GND** pins to the second layer.
 
-![first layer](./images/first_layer.jpg)
+![first layer](./images/schematics/first_layer.jpg)
 
 
 
 #### Second Layer:
 All sensors and displays will sit here. There's another small protoboard above to give the BMP280 and GPS space.
 
-![second layer](./images/second_layer.jpg)
+![second layer](./images/schematics/second_layer.jpg)
 
 
 ### Software
@@ -385,4 +391,4 @@ if __name__ == "__main__":
 
 ## Latest Setup
 
-![setup](./images/setup.jpg)
+![setup](./demos/setup.jpg)

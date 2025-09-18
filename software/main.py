@@ -116,9 +116,9 @@ async def bmp280_task():
         print("===================BAROMETRIC BATCH===================")
         baro_batch.append(
             {
-                "temperature (C)": bmp280.temperature,
-                "pressure (hPA)": bmp280.pressure,
-                "altitude (M)": bmp280.altitude,
+                "temperature_c": bmp280.temperature,
+                "pressure_hpa": bmp280.pressure,
+                "altitude_m": bmp280.altitude,
             }
         )
         print(f"BATCH {len(baro_batch)}\n{baro_batch}\n\n")
@@ -198,10 +198,10 @@ async def cpu_task():
         print("===================CPU BATCH===================")
         cpu_batch.append(
             {
-                "temperature (C)": raw_cpu_temp,
-                "load": raw_cpu_load,
-                "memory usage (MB)": raw_cpu_mem,
-                "memory usage (%)": raw_cpu_mem_per,
+                "temperature_c": raw_cpu_temp,
+                "cpu_load": raw_cpu_load,
+                "memory_usage_mb": raw_cpu_mem,
+                "memory_usage_percent": raw_cpu_mem_per,
             }
         )
         print(f"BATCH {len(cpu_batch)}\n{cpu_batch}\n\n")
@@ -239,9 +239,9 @@ async def gps_task():
                     {
                         "datetime": dt,
                         "longitude": lon,
-                        "lon_dir": dir_lon,
+                        "longitude_direction": dir_lon,
                         "latitude": lat,
-                        "lat_dir": dir_lat,
+                        "latitude_direction": dir_lat,
                     }
                 )
                 print(f"BATCH {len(gps_batch)}\n{gps_batch}\n\n")
@@ -264,12 +264,12 @@ async def gps_task():
 # within the ./mnt/microsd directory
 def write_to_local(data, file, field_names):
     with open(f"{file}", "a+") as csv_file:
-
         print(f"WRITING TO {file}.....\n")
-        csv_writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter=",")
 
-        if not os.path.exists(file):
-            csv_write.writeheader()
+        csv_writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter=",")
+        if not os.path.exists(file) or os.stat(file).st_size == 0:
+            csv_writer.writeheader()
+
         csv_writer.writerows(data)
 
 
@@ -283,9 +283,8 @@ def write_to_sd(data, file):
         print(f"opening {file}")
         with open(f"{file}", "a+") as csv_file:
             print(f"writing {data}")
-            gps_writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter=",")
 
-            if not os.path.exists(file):
+            if not has_header:
                 gps_writer.writeheader()
 
             gps_writer.writerows(data)
@@ -417,13 +416,13 @@ if __name__ == "__main__":
     lcd.clear()
 
     # csv headers for each hardware
-    gps_field_names = ["datetime", "longitude", "lon_dir", "latitude", "lat_dir"]
-    baro_field_names = ["temperature (C)", "pressure (hPA)", "altitude (M)"]
+    gps_field_names = ["datetime", "longitude", "longitude_direction", "latitude", "latitude_direction"]
+    baro_field_names = ["temperature_c", "pressure_hpa", "altitude_m"]
     cpu_field_names = [
-        "temperature (C)",
-        "load",
-        "memory usage (MB)",
-        "memory usage (%)",
+        "temperature_c",
+        "cpu_load",
+        "memory_usage_mb",
+        "memory_usage_percent",
     ]
 
     # writing gps, barometric, cpu data in N batches

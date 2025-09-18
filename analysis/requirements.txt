@@ -1,0 +1,9 @@
+jupyter
+geopandas
+shapely
+pyproj
+pyogrio
+duckdb
+branca
+folium
+mapclassify

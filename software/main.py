@@ -91,6 +91,7 @@ def draw_image(disp, width, height, fill=0):
 # retrieve barometric sensor data
 # display it onto the round display
 async def bmp280_task():
+    dt = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
     gca_draw.rectangle(
         (0, 0, disp_gc9a01.width, disp_gc9a01.height // 2 - 30), fill=(155, 50, 0)
     )
@@ -116,6 +117,7 @@ async def bmp280_task():
         print("===================BAROMETRIC BATCH===================")
         baro_batch.append(
             {
+                "datetime": dt,
                 "temperature_c": bmp280.temperature,
                 "pressure_hpa": bmp280.pressure,
                 "altitude_m": bmp280.altitude,
@@ -150,6 +152,7 @@ async def async_main():
 # monitors systems cpu temperature, cpu load, memory usage
 # and displays them onto the round display
 async def cpu_task():
+    dt = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
     st7789_draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
     # REFERENCE:
@@ -198,6 +201,7 @@ async def cpu_task():
         print("===================CPU BATCH===================")
         cpu_batch.append(
             {
+                "datetime": dt,
                 "temperature_c": raw_cpu_temp,
                 "cpu_load": raw_cpu_load,
                 "memory_usage_mb": raw_cpu_mem,
@@ -417,8 +421,9 @@ if __name__ == "__main__":
 
     # csv headers for each hardware
     gps_field_names = ["datetime", "longitude", "longitude_direction", "latitude", "latitude_direction"]
-    baro_field_names = ["temperature_c", "pressure_hpa", "altitude_m"]
+    baro_field_names = ["datetime", "temperature_c", "pressure_hpa", "altitude_m"]
     cpu_field_names = [
+        "datetime",
         "temperature_c",
         "cpu_load",
         "memory_usage_mb",

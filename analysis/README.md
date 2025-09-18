@@ -2,7 +2,7 @@
 This is a separate **Intel Compute Stick** tp perform data analysis on the [NixOS Cyberdeck](../README.md). The purpose is to have a **portable embedded database** to store and process data (CPU, GPS, Barometric sensors). While this setup can be installed on the same device it's best to differentiate the task to avoid confusion and overhead.
 
 ## Setup
-* **[cyberdeck_analysis.ipynb](./cyberdeck_analysis.ipynb)**
+* **[sample_cyberdeck_analysis.ipynb](./cyberdeck_analysis.ipynb)**
 * **cyberdeck.db**
 * **[default.nix](./default.nix)**
 * **[requirements.txt](./requirements.txt)**
@@ -28,8 +28,8 @@ Python packages that aren't avaliable in Nix packages can be installed through `
 * **[DuckDB](https://duckdb.org/)**
 
 ### **DuckDB**:
-Tables are already made for each hardware component. Data has been recorded and can be used as sample data. 
-**<sub>(The **device** table is currently not used but it is for keeping track of hardware. **device_id** is a foreign key that is from the **device** table.)</sub>**
+Tables are already made for each hardware component. Data has been recorded and can be used as **sample data.** 
+**(The **device** table is currently not used but it is for keeping track of hardware. **device_id** is a foreign key that is from the **device** table.)**
 
 #### Tables
 ![duckdb_tables](../images/database/duckdb_tables.png)

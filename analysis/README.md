@@ -2,7 +2,7 @@
 This is a separate **Intel Compute Stick** tp perform data analysis on the [NixOS Cyberdeck](../README.md). The purpose is to have a **portable embedded database** to store and process data (CPU, GPS, Barometric sensors). While this setup can be installed on the same device it's best to differentiate the task to avoid confusion and overhead.
 
 ## Setup
-* **[sample_cyberdeck_analysis.ipynb](./cyberdeck_analysis.ipynb)**
+* **[sample_cyberdeck_analysis.ipynb](./sample_cyberdeck_analysis.ipynb)**
 * **cyberdeck.db**
 * **[default.nix](./default.nix)**
 * **[requirements.txt](./requirements.txt)**

@@ -2,7 +2,7 @@
 This is a separate **Intel Compute Stick** tp perform data analysis on the [NixOS Cyberdeck](../README.md). The purpose is to have a **portable embedded database** to store and process data (CPU, GPS, Barometric sensors). While this setup can be installed on the same device it's best to differentiate the task to avoid confusion and overhead.
 
 ## Setup
-* **[analysis.ipynb](./analysis.ipynb)**
+* **[sample_cyberdeck_analysis.ipynb](./cyberdeck_analysis.ipynb)**
 * **cyberdeck.db**
 * **[default.nix](./default.nix)**
 * **[requirements.txt](./requirements.txt)**
@@ -28,10 +28,14 @@ Python packages that aren't avaliable in Nix packages can be installed through `
 * **[DuckDB](https://duckdb.org/)**
 
 ### **DuckDB**:
-Tables are already made for each hardware component.
+Tables are already made for each hardware component. Data has been recorded and can be used as **sample data.** 
+**(The **device** table is currently not used but it is for keeping track of hardware. **device_id** is a foreign key that is from the **device** table.)**
 
 #### Tables
 ![duckdb_tables](../images/database/duckdb_tables.png)
+
+#### Device Table
+![duckdb_tables](../images/database/duckdb_device_table.png)
 
 #### Barometric Table
 ![duckdb_barometric](../images/database/duckdb_barometric_table.png)
@@ -43,27 +47,12 @@ Tables are already made for each hardware component.
 Filtered for values that aren't non-zeroes. **SPATIAL** extension is needed to display the **lon_lat_geometry** column.
 ![duckdb_gps](../images/database/duckdb_gps_table.png)
 
-### **Jupyter Notebook**
-Can be used as reference.
+
+
 ### Geopandas
-GPS points being plotted 
+In the **[notebook](./cyberdeck_analysis.ipynb)**. The following shows recorded GPS points being plotted on two methods (explained in the comments):
+#### Matplotlib
+![matplotlib_output](../images/data_analysis/matplotlib_output.png)
 
+#### Geopandas 
 ![geopandas_osm_output](../images/data_analysis/geopandas_osm_output.png)
-
-### Matplotlib
-Monitoring hardware usage over time. 
-#### Barometric Plot
-![baro_dt_temp](../images/data_analysis/baro_plot_dt_temp.png)
-
-![baro_dt_pres](../images/data_analysis/baro_plot_dt_pres.png)
-
-![baro_dt_alt](../images/data_analysis/baro_plot_dt_alt.png)
-
-#### CPU Plot
-![cpu_dt_temp](../images/data_analysis/cpu_plot_dt_temp.png)
-
-![cpu_dt_load](../images/data_analysis/cpu_plot_dt_load.png)
-
-![cpu_dt_mb](../images/data_analysis/cpu_plot_dt_mb.png)
-
-![cpu_dt_per](../images/data_analysis/cpu_plot_dt_per.png)

@@ -9,7 +9,7 @@ https://github.com/user-attachments/assets/1449d1bb-dcd8-46d2-952f-5a30e3d01839
 ![outdoor_testing](./demos/outdoor_testing.jpg)
 
 ### Directory:
-* [NixOS Database Analysis](./analysis/READMD.md)
+* [NixOS Database Analysis](./analysis/)
 
 ## Background
 

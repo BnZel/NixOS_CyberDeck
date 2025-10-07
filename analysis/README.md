@@ -1,5 +1,8 @@
 # NixOS Database Analysis
-This is a separate **Intel Compute Stick** tp perform data analysis on the [NixOS Cyberdeck](../README.md). The purpose is to have a **portable embedded database** to store and process data (CPU, GPS, Barometric sensors). While this setup can be installed on the same device it's best to differentiate the task to avoid confusion and overhead.
+This is a separate **Intel Compute Stick** to perform data analysis on the [NixOS Cyberdeck](../README.md). The purpose is to have a **portable embedded database** to store and process data (CPU, GPS, Barometric sensors). While this setup can be installed on the same device it's best to differentiate the task to avoid confusion and overhead.
+
+## Overview
+![nixexp_architecture](../images/diagrams/nixexp_architecture.jpg)
 
 ## Setup
 * **[analysis.ipynb](./analysis.ipynb)**

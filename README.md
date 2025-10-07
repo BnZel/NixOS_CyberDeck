@@ -1,11 +1,13 @@
 # NixOS Cyberdeck 
 A cyberdeck project based on the **Intel Compute Stick** that is running **NixOS**. 
 
+I'm excited that it has been [featured](https://www.canadarobotix.com/blogs/news/customer-spotlight-bnzels-cyberdeck-journey-part-4) on a store where I purchase most of my electronics at [CanadaRobotix](https://www.canadarobotix.com/).
+
 ![NixOS Cyberdeck Logo](https://bnzel.github.io/assets/img/nixos_cyberdeck/thumb_nixos_cyberdeck_logo.jpg)
 
-https://github.com/user-attachments/assets/1449d1bb-dcd8-46d2-952f-5a30e3d01839
+## Tests
+![cyberdeck_demo](./demos/demo.gif)
 
-#### Field Testing
 ![outdoor_testing](./demos/outdoor_testing.jpg)
 
 ### Directory:
@@ -29,7 +31,7 @@ The purpose of choosing **[NixOS](https://nixos.org/)** was because of its **rep
 
 The package manager makes it where the **build and development enviroments** can be properly separated and accessible without experiencing issues and interference with software tools. In my case, I can modify and/or activate environments based on what the cyberdeck needs to work on both hardware and software.
 
-I have made several blog posts documenting my journey on the PC sticks:
+I have made several **blog posts** documenting my journey on the PC sticks:
 1. [Discovering the Intel Compute Stick](https://bnzel.github.io/2024-08-03-Intel-Compute-Sticks/)
 2. [Booting Ubuntu Server and NixOS onto the stick](https://bnzel.github.io/2024-08-07-ServerDeck-and-NixOS/)
 3. [Breadboard prototyping the NixOS stick](https://bnzel.github.io/2025-04-07-NixOS-CyberDeck/)
@@ -68,6 +70,9 @@ There were other issues regarding the **5V/3A** adapter that I don't recall as I
 ```
 boot.blacklistedKernelModules = ["i2c-designware-platform" "i2c-designware-core" "axp20x" "axp20x_i2c" "axp288_charger "];
 ```
+
+### Architecture Overview
+![cyberdeck_architecture](./images/diagrams/cyberdeck_architecture.jpg)
 
 ### Custom Hardware
 The **FT232H** is the main driver of the following components:

@@ -10,8 +10,9 @@ I'm excited that it has been [featured](https://www.canadarobotix.com/blogs/news
 
 ![outdoor_testing](./demos/outdoor_testing.jpg)
 
-### Directory:
+# Directory:
 * [NixOS Database Analysis](./analysis/)
+* [ESP32 Glove](./esp32_glove/)
 
 ## Background
 

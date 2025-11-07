@@ -7,7 +7,9 @@ Using a **ThinkCentre M700** running **[Proxmox VE](https://www.proxmox.com/en/)
 
 ![dashboard](../demos/web_dashboard_demo.gif)
 
-**[[Link to a tutorial that helped build this dashboard]](https://testdriven.io/blog/flask-svelte/)**
+### Resources
+* **[Svelte and Flask Dashboard Tutorial](https://testdriven.io/blog/flask-svelte/)**
+* **[Paramiko Python SSH Tutorial](https://www.devdungeon.com/content/python-ssh-tutorial#toc-3)**
 
 ### Software
 * **[Proxmox](https://www.proxmox.com/en/)**

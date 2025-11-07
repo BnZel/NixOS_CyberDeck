@@ -30,10 +30,11 @@ Using a **ThinkCentre M700** running **[Proxmox VE](https://www.proxmox.com/en/)
 ### Diagrams
 
 #### Proxmox Web Directory
-![dashboard](../images/diagrams/dashboard_diagram.jpg)
+![web to cybedeck](../images/diagrams/web_to_dashboard_diagram.jpg)
 
 #### How Proxmox Interacts With The Cyberdeck
-![web to cybedeck](../images/diagrams/web_to_dashboard_diagram.jpg)
+![dashboard](../images/diagrams/dashboard_diagram.jpg)
+
 
 
 ### Startup

@@ -13,6 +13,7 @@ I'm excited that it has been [featured](https://www.canadarobotix.com/blogs/news
 # Directory:
 * [NixOS Database Analysis](./analysis/)
 * [ESP32 Glove](./esp32_glove/)
+* [Web Dashboard](./web_dashboard/)
 
 ## Background
 

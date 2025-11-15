@@ -14,6 +14,8 @@ Using a **ThinkCentre M700** running **[Proxmox VE](https://www.proxmox.com/en/)
 ### Software
 * **[Proxmox](https://www.proxmox.com/en/)**
 * **[Test Script](./test.py)**
+* **[Frontend](./frontend)**
+* **[Backend](./backend)**
 
 #### Frontend
 * **[Svelte](https://svelte.dev/)**

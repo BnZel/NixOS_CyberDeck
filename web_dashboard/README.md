@@ -7,11 +7,15 @@ Using a **ThinkCentre M700** running **[Proxmox VE](https://www.proxmox.com/en/)
 
 ![dashboard](../demos/web_dashboard_demo.gif)
 
-**[[Link to a tutorial that helped build this dashboard]](https://testdriven.io/blog/flask-svelte/)**
+### Resources
+* **[Svelte and Flask Dashboard Tutorial](https://testdriven.io/blog/flask-svelte/)**
+* **[Paramiko Python SSH Tutorial](https://www.devdungeon.com/content/python-ssh-tutorial#toc-3)**
 
 ### Software
 * **[Proxmox](https://www.proxmox.com/en/)**
 * **[Test Script](./test.py)**
+* **[Frontend](./frontend)**
+* **[Backend](./backend)**
 
 #### Frontend
 * **[Svelte](https://svelte.dev/)**
@@ -28,10 +32,11 @@ Using a **ThinkCentre M700** running **[Proxmox VE](https://www.proxmox.com/en/)
 ### Diagrams
 
 #### Proxmox Web Directory
-![dashboard](../images/diagrams/dashboard_diagram.jpg)
+![web to cybedeck](../images/diagrams/web_to_dashboard_diagram.jpg)
 
 #### How Proxmox Interacts With The Cyberdeck
-![web to cybedeck](../images/diagrams/web_to_dashboard_diagram.jpg)
+![dashboard](../images/diagrams/dashboard_diagram.jpg)
+
 
 
 ### Startup

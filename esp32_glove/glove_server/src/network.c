@@ -8,36 +8,42 @@
 
 #include "../include/network.h"
 
-void parseData(struct glove glove_, char buffer[])
+struct glove glove_ = {0};
+struct servo servo_ = {0};
+pthread_mutex_t glove_data;
+
+void parseData(struct glove *glove_, struct servo *servo_, char buffer[])
 {
-    char *token;
+    pthread_mutex_lock(&glove_data);
 
-    token = strtok(buffer,",");
-    glove_.A2 = atoll(token);
+    sscanf(buffer, "%[^,],%lu,%lu,%lu,%lu,%lu,%f,%f,%f",
+        glove_->name, &glove_->A2, &glove_->A3, &glove_->A4, 
+        &glove_->D32, &glove_->D33, &glove_->x, &glove_->y, &glove_->z);
     
-    token = strtok(NULL,",");
-    glove_.A3 = atoll(token);
+    servo_->s1 = glove_->A3;
+    servo_->s2 = glove_->A4;
+    servo_->s3 = glove_->D32;
+    servo_->s4 = glove_->D33; 
+        
+    pthread_mutex_unlock(&glove_data);
 
-    token = strtok(NULL,",");
-    glove_.A4 = atoll(token);
+    // printf("%s || A2: %lu | A3: %lu | A4: %lu | D32: %lu | D33: %lu | x: %f | y: %f | z: %f\n",\
+    //     glove_->name,glove_->A2,glove_->A3,glove_->A4,glove_->D32,glove_->D33,glove_->x,glove_->y,glove_->z);  
+}
 
-    token = strtok(NULL,",");
-    glove_.D32 = atoll(token);   
-    
-    token = strtok(NULL,",");
-    glove_.D33 = atoll(token);
+void sendData(int clientSocket, struct glove *glove, struct servo *servo)
+{
+    char TxBuffer[BUFFER_SIZE] = {0};
+    pthread_mutex_lock(&glove_data);
 
-    token = strtok(NULL,",");
-    glove_.x = atof(token);
+    sprintf(TxBuffer,"%lu,%lu,%lu,%lu",servo->s1,servo->s2,servo->s3,servo->s4);
 
-    token = strtok(NULL,",");
-    glove_.y = atof(token);
+    pthread_mutex_unlock(&glove_data);
 
-    token = strtok(NULL,",");
-    glove_.z = atof(token);
+    send(clientSocket, TxBuffer, strlen(TxBuffer), 0);
 
-    printf("A2: %lu | A3: %lu | A4: %lu | D32: %lu | D33: %lu | x: %f | y: %f | z: %f\n",\
-        glove_.A2,glove_.A3,glove_.A4,glove_.D32,glove_.D33,glove_.x,glove_.y,glove_.z);    
+    printf("SERVERDECK || S1: %lu | S2: %lu | S3: %lu | S4: %lu \n",\
+         servo->s1, servo->s2, servo->s3, servo->s4);
 }
 
 void *manageClient(void *args)
@@ -48,21 +54,27 @@ void *manageClient(void *args)
 
     send(clientSocket, TxBuffer, sizeof(TxBuffer), 0);
 
-    struct glove glove_;
-
     while(true)
     {        
         int received = recv(clientSocket, RxBuffer, sizeof(RxBuffer), 0);
-        if(received == 0){printf("Client disconnected...\n"); break;}
+        if(received == 0){printf("\n\nClient disconnected...\n"); break;}
         
         if(received > 0)
         {
             RxBuffer[received] = '\0';
-            parseData(glove_, RxBuffer);
+            if(strstr(RxBuffer,"GLOVE"))
+            {
+                parseData(&glove_, &servo_, RxBuffer);
+            } 
+
+            if(strstr(RxBuffer,"SERVERDECK"))
+            {   
+                sendData(clientSocket, &glove_, &servo_);
+            }
         }
     }
 
-    printf("Client socket closed...");
+    printf("Client socket closed...\n\n");
     close(clientSocket);
 }
 
@@ -72,6 +84,8 @@ void startServer()
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
     if(serverSocket == 0){printf("Error creating server socket...\n"); exit(1);}
     printf("Server socket created\n");
+
+    if (setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int)) < 0){error("setsockopt(SO_REUSEADDR) failed");}
 
     struct sockaddr_in svrAddress;
     svrAddress.sin_family = AF_INET;
@@ -89,6 +103,8 @@ void startServer()
 
     int clientSocket;
 
+    pthread_mutex_init(&glove_data, NULL);
+
     while(true)
     {
         clientSocket = accept(serverSocket, (struct sockaddr *) &svrAddress, (socklen_t *) &lenAddress);
@@ -97,12 +113,14 @@ void startServer()
             printf("Error accepting new connections...\n"); 
             exit(1);
         }
-        printf("Listening to incoming connections");
+
+        printf("Listening to incoming connections\n\n");
 
         // multi-threading
         pthread_t tid;
         if(pthread_create(&tid, NULL, manageClient, (void *)&clientSocket) != 0){
-            printf("Error creating thread...\n"); 
+            printf("Error creating thread...\n");
+	    free(clientSocket); 
             exit(1);
         }
         else {

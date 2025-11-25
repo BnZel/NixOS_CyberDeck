@@ -79,4 +79,20 @@ def smoothing(s0, prev_s_t, alpha=0.1):
         return int(prev_s_t)
     return s0
 ```
+### Applications
+#### Servo Controller
+A demo showcasing remote control of servos. 
 
+![servo controller demo](../demos/esp32_glove_servo_controller_demo.gif)
+
+![glove to serverdeck diagram](../images/esp32_glove/glove_to_serverdeck_diagram.jpg)
+
+The **[SERVERDECK BUILD](https://bnzel.github.io/2024-08-07-ServerDeck-and-NixOS/)** block refers to my very first cyberdeck build but this can be interchangable with any client.
+
+#### [Software](./servo_controller/)
+* **[main.py](./servo_controller/main.py)**
+* **[requirements.txt](./servo_controller/requirements.txt)**
+
+#### Hardware
+* **PCA9685**
+* **DC Servo Motors (x4)**

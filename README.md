@@ -92,7 +92,7 @@ The **BMP280** had encountered an error where the chip is not recognized. This w
 
 **GC9A01** is to display data from **BMP280**, **ST7789** to view the cyberdecks cpu: temperature, load, memory resource. The **LCD** shows date-time and **GPS** location. 
 
-![kicad schematic](./images/schematics/kicad_schematic.jpg)
+![kicad schematic](./images/schematics/kicad_schematic.jpg) 
 
 ![schematic](./images/schematics/schematic.jpg)
 
@@ -402,4 +402,4 @@ if __name__ == "__main__":
 
 ![setup](./demos/setup.jpg)
 
-![case setup](./demos/case_setup.jpg)
+![case setup](./demos/case_setup.jpg) 

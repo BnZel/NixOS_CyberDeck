@@ -1,0 +1,2349 @@
+(export
+	(version "E")
+	(design
+		(source "/home/biozxel/Downloads/software/nixos_cyberdeck/nixos_cyberdeck.kicad_sch")
+		(date "2026-07-17T19:31:30")
+		(tool "Eeschema 10.0.4")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "NixOS Cyberdeck - Mainboard")
+				(company "Author: BnZel (https://github.com/BnZel)")
+				(rev "v1.1")
+				(date "2026-07-14")
+				(source "nixos_cyberdeck.kicad_sch")
+				(comment
+					(number "1")
+					(value "License: MIT")
+				)
+				(comment
+					(number "2")
+					(value "Repository: https://github.com/BnZel/NixOS_CyberDeck")
+				)
+				(comment
+					(number "3")
+					(value "Platform: Intel Compute Stick STK1A32SC")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "DS1")
+			(value "ST7789_TFT")
+			(footprint "Library:st7789 TFT")
+			(description "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Library:st7789 TFT")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector_Generic")
+				(part "Conn_01x07")
+				(description "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "a33008e9-e397-4a12-bdcc-695ee3d2c55d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "DS2")
+			(value "GC9A01_TFT")
+			(footprint "Library:GC9A01 TFT")
+			(description "1.28 inch round LCD TFT Display SPI 240x240px")
+			(fields
+				(field
+					(name "Footprint") "Library:GC9A01 TFT")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "1.28 inch round LCD TFT Display SPI 240x240px")
+			)
+			(libsource
+				(lib "AZDelivery")
+				(part "GC9A01_TFT")
+				(description "1.28 inch round LCD TFT Display SPI 240x240px")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "LCD TFT Display round")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "cdb5fe3f-8bd2-4767-9efe-d1f54b57112d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "DS3")
+			(value "WC1602A")
+			(footprint "Display:WC1602A")
+			(datasheet "http://www.icbank.com/data/ICBShop/board/HY1602E.pdf")
+			(description "LCD 16x2 Alphanumeric 16pin Blue/Yellow/Green Backlight, 8bit parallel, 5V VDD")
+			(fields
+				(field
+					(name "Footprint") "Display:WC1602A")
+				(field
+					(name "Datasheet") "http://www.icbank.com/data/ICBShop/board/HY1602E.pdf")
+				(field
+					(name "Description") "LCD 16x2 Alphanumeric 16pin Blue/Yellow/Green Backlight, 8bit parallel, 5V VDD")
+			)
+			(libsource
+				(lib "Display_Character")
+				(part "HY1602E")
+				(description "LCD 16x2 Alphanumeric 16pin Blue/Yellow/Green Backlight, 8bit parallel, 5V VDD")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "display LCD 7-segment")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "*HY1602E*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "43856206-8276-43e2-9968-51d230767284")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "H1")
+			(value "MountingHole")
+			(footprint "MountingHole:MountingHole_3.2mm_M3")
+			(description "Mounting Hole without connection")
+			(fields
+				(field
+					(name "Footprint") "MountingHole:MountingHole_3.2mm_M3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Mounting Hole without connection")
+			)
+			(libsource
+				(lib "Mechanical")
+				(part "MountingHole")
+				(description "Mounting Hole without connection")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "ki_keywords")
+				(value "mounting hole")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "MountingHole*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8f6d3aa3-31bf-40e0-8355-e2aabe171cac")
+			(units
+				(unit
+					(name "A")
+					(pins)
+				)
+			)
+		)
+		(comp
+			(ref "H2")
+			(value "MountingHole")
+			(footprint "MountingHole:MountingHole_3.2mm_M3")
+			(description "Mounting Hole without connection")
+			(fields
+				(field
+					(name "Footprint") "MountingHole:MountingHole_3.2mm_M3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Mounting Hole without connection")
+			)
+			(libsource
+				(lib "Mechanical")
+				(part "MountingHole")
+				(description "Mounting Hole without connection")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "ki_keywords")
+				(value "mounting hole")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "MountingHole*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "094da40a-ff1d-4d89-83cf-233bbe66475d")
+			(units
+				(unit
+					(name "A")
+					(pins)
+				)
+			)
+		)
+		(comp
+			(ref "H3")
+			(value "MountingHole")
+			(footprint "MountingHole:MountingHole_3.2mm_M3")
+			(description "Mounting Hole without connection")
+			(fields
+				(field
+					(name "Footprint") "MountingHole:MountingHole_3.2mm_M3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Mounting Hole without connection")
+			)
+			(libsource
+				(lib "Mechanical")
+				(part "MountingHole")
+				(description "Mounting Hole without connection")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "ki_keywords")
+				(value "mounting hole")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "MountingHole*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d47c7ca6-a7a6-4c5c-b4b7-2f5285c4ada1")
+			(units
+				(unit
+					(name "A")
+					(pins)
+				)
+			)
+		)
+		(comp
+			(ref "H4")
+			(value "MountingHole")
+			(footprint "MountingHole:MountingHole_3.2mm_M3")
+			(description "Mounting Hole without connection")
+			(fields
+				(field
+					(name "Footprint") "MountingHole:MountingHole_3.2mm_M3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Mounting Hole without connection")
+			)
+			(libsource
+				(lib "Mechanical")
+				(part "MountingHole")
+				(description "Mounting Hole without connection")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "ki_keywords")
+				(value "mounting hole")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "MountingHole*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "260a192f-965b-463f-b8c4-173f720e5b75")
+			(units
+				(unit
+					(name "A")
+					(pins)
+				)
+			)
+		)
+		(comp
+			(ref "J1")
+			(value "~")
+			(footprint "Connector_JST:JST_PH_S4B-PH-K_1x04_P2.00mm_Horizontal")
+			(fields
+				(field
+					(name "Footprint") "Connector_JST:JST_PH_S4B-PH-K_1x04_P2.00mm_Horizontal")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "USB_FTDI")
+				(part "USB_FTDI")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "4fd461d8-7592-4bac-949b-c54f5790febd")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "RV1")
+			(value "10K")
+			(footprint "Library:Potentiometer_3_PIN")
+			(description "Potentiometer")
+			(fields
+				(field
+					(name "Sim.Device") "R")
+				(field
+					(name "Sim.Type") "POT")
+				(field
+					(name "Sim.Pins") "1=r0 2=wiper 3=r1")
+				(field
+					(name "Footprint") "Library:Potentiometer_3_PIN")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Potentiometer")
+			)
+			(libsource
+				(lib "Device")
+				(part "R_Potentiometer")
+				(description "Potentiometer")
+			)
+			(property
+				(name "Sim.Device")
+				(value "R")
+			)
+			(property
+				(name "Sim.Type")
+				(value "POT")
+			)
+			(property
+				(name "Sim.Pins")
+				(value "1=r0 2=wiper 3=r1")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "resistor variable")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Potentiometer*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "143f72bb-c97a-498d-b026-c96f1452d238")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "Adafruit FT232H Breakout")
+			(footprint "Library:USB_C_FT232H")
+			(description "Generic connectable mounting pin connector, single row, 01x14, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Library:USB_C_FT232H")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connectable mounting pin connector, single row, 01x14, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector_Generic_MountingPin")
+				(part "Conn_01x14_MountingPin")
+				(description "Generic connectable mounting pin connector, single row, 01x14, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??-1MP*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d5b0928b-6cce-402e-8e01-c87c97aa4313")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "74HC595")
+			(footprint "Library:THT_74HC595")
+			(datasheet "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf")
+			(description "8-bit serial in/out Shift Register 3-State Outputs")
+			(fields
+				(field
+					(name "Footprint") "Library:THT_74HC595")
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf")
+				(field
+					(name "Description") "8-bit serial in/out Shift Register 3-State Outputs")
+			)
+			(libsource
+				(lib "74xx")
+				(part "74HC595")
+				(description "8-bit serial in/out Shift Register 3-State Outputs")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "HCMOS SR 3State")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "DIP*W7.62mm* SOIC*3.9x9.9mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm* SOIC*5.3x10.2mm*P1.27mm* SOIC*7.5x10.3mm*P1.27mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b07adc5d-91b0-4222-aa03-2e9902a923d7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "9")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "BMP280")
+			(footprint "Library:BMP280")
+			(datasheet "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf")
+			(description "Absolute Barometric Pressure Sensor, LGA-8")
+			(fields
+				(field
+					(name "Footprint") "Library:BMP280")
+				(field
+					(name "Datasheet") "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf")
+				(field
+					(name "Description") "Absolute Barometric Pressure Sensor, LGA-8")
+			)
+			(libsource
+				(lib "Sensor_Pressure")
+				(part "BMP280")
+				(description "Absolute Barometric Pressure Sensor, LGA-8")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "I2C, SPI, pressure, temperature, sensor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Bosch*LGA*2x2.5mm*P0.65mm*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "31a2509c-ca3a-4df5-983a-52b6b86abc1e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U4")
+			(value "~")
+			(footprint "Library:Adafruit Ulitmate GPS Breakout V3")
+			(fields
+				(field
+					(name "Footprint") "Library:Adafruit Ulitmate GPS Breakout V3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Adafruit_GPS_V3_RX_TX")
+				(part "Adafruit_GPS_V3_Breakout")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "nixos_cyberdeck.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "69a8df38-43d8-489f-94be-aaf172729677")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "74xx")
+			(part "74HC595")
+			(description "8-bit serial in/out Shift Register 3-State Outputs")
+			(docs "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf")
+			(footprints
+				(fp "DIP*W7.62mm*")
+				(fp "SOIC*3.9x9.9mm*P1.27mm*")
+				(fp "TSSOP*4.4x5mm*P0.65mm*")
+				(fp "SOIC*5.3x10.2mm*P1.27mm*")
+				(fp "SOIC*7.5x10.3mm*P1.27mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U2")
+				(field
+					(name "Value") "74HC595")
+				(field
+					(name "Footprint") "74HC595:SO16")
+				(field
+					(name "Datasheet") "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf")
+				(field
+					(name "Description") "8-bit serial in/out Shift Register 3-State Outputs")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "QB")
+					(type "tri_state")
+				)
+				(pin
+					(num "2")
+					(name "QC")
+					(type "tri_state")
+				)
+				(pin
+					(num "3")
+					(name "QD")
+					(type "tri_state")
+				)
+				(pin
+					(num "4")
+					(name "QE")
+					(type "tri_state")
+				)
+				(pin
+					(num "5")
+					(name "QF")
+					(type "tri_state")
+				)
+				(pin
+					(num "6")
+					(name "QG")
+					(type "tri_state")
+				)
+				(pin
+					(num "7")
+					(name "QH")
+					(type "tri_state")
+				)
+				(pin
+					(num "8")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "9")
+					(name "QH'")
+					(type "output")
+				)
+				(pin
+					(num "10")
+					(name "~{SRCLR}")
+					(type "input")
+				)
+				(pin
+					(num "11")
+					(name "SRCLK")
+					(type "input")
+				)
+				(pin
+					(num "12")
+					(name "RCLK")
+					(type "input")
+				)
+				(pin
+					(num "13")
+					(name "~{OE}")
+					(type "input")
+				)
+				(pin
+					(num "14")
+					(name "SER")
+					(type "input")
+				)
+				(pin
+					(num "15")
+					(name "QA")
+					(type "tri_state")
+				)
+				(pin
+					(num "16")
+					(name "VCC")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "AZDelivery")
+			(part "GC9A01_TFT")
+			(description "1.28 inch round LCD TFT Display SPI 240x240px")
+			(fields
+				(field
+					(name "Reference") "DS")
+				(field
+					(name "Value") "GC9A01_TFT")
+				(field
+					(name "Footprint") "AZDelivery:GC9A01 TFT")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "1.28 inch round LCD TFT Display SPI 240x240px")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VCC")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "SCL")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "SDA")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "DC")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "CS")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "RST")
+					(type "input")
+				)
+			)
+		)
+		(libpart
+			(lib "Adafruit_GPS_V3_RX_TX")
+			(part "Adafruit_GPS_V3_Breakout")
+			(fields
+				(field
+					(name "Reference") "U4")
+				(field
+					(name "Value")
+				)
+				(field
+					(name "Footprint") "adafruit_ulitmate_gps_breakout_v3:Adafruit Ulitmate GPS Breakout V3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "3.3V")
+					(type "output")
+				)
+				(pin
+					(num "2")
+					(name "EN")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "VBAT")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "FIX")
+					(type "output")
+				)
+				(pin
+					(num "5")
+					(name "TX")
+					(type "output")
+				)
+				(pin
+					(num "6")
+					(name "RX")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "8")
+					(name "VIN")
+					(type "power_in")
+				)
+				(pin
+					(num "9")
+					(name "PPS")
+					(type "power_out")
+				)
+			)
+		)
+		(libpart
+			(lib "Connector_Generic")
+			(part "Conn_01x07")
+			(description "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(footprints
+				(fp "Connector*:*_1x??_*")
+			)
+			(fields
+				(field
+					(name "Reference") "DS1")
+				(field
+					(name "Value") "ST7789_TFT")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "VCC")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "SCL")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "SDA")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "RES")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "DC")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "CS")
+					(type "input")
+				)
+				(pin
+					(num "8")
+					(name "BLK")
+					(type "input")
+				)
+			)
+		)
+		(libpart
+			(lib "Connector_Generic_MountingPin")
+			(part "Conn_01x14_MountingPin")
+			(description "Generic connectable mounting pin connector, single row, 01x14, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(footprints
+				(fp "Connector*:*_1x??-1MP*")
+			)
+			(fields
+				(field
+					(name "Reference") "U2")
+				(field
+					(name "Value") "Adafruit FT232H Breakout")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connectable mounting pin connector, single row, 01x14, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "3.3V")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "5V")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "4")
+					(name "D0")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "D1")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "D2")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "D6")
+					(type "input")
+				)
+				(pin
+					(num "8")
+					(name "C1")
+					(type "input")
+				)
+				(pin
+					(num "9")
+					(name "C2")
+					(type "input")
+				)
+				(pin
+					(num "10")
+					(name "C3")
+					(type "input")
+				)
+				(pin
+					(num "11")
+					(name "C4")
+					(type "input")
+				)
+				(pin
+					(num "12")
+					(name "C5")
+					(type "input")
+				)
+				(pin
+					(num "13")
+					(name "C6")
+					(type "input")
+				)
+				(pin
+					(num "14")
+					(name "C7")
+					(type "input")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "R_Potentiometer")
+			(description "Potentiometer")
+			(footprints
+				(fp "Potentiometer*")
+			)
+			(fields
+				(field
+					(name "Reference") "RV")
+				(field
+					(name "Value") "R_Potentiometer")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Potentiometer")
+				(field
+					(name "Sim.Device") "R")
+				(field
+					(name "Sim.Type") "POT")
+				(field
+					(name "Sim.Pins") "1=r0 2=wiper 3=r1")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Display_Character")
+			(part "HY1602E")
+			(description "LCD 16x2 Alphanumeric 16pin Blue/Yellow/Green Backlight, 8bit parallel, 5V VDD")
+			(docs "http://www.icbank.com/data/ICBShop/board/HY1602E.pdf")
+			(footprints
+				(fp "*HY1602E*")
+			)
+			(fields
+				(field
+					(name "Reference") "DS3")
+				(field
+					(name "Value") "HY1602E")
+				(field
+					(name "Footprint") "Display:HY1602E")
+				(field
+					(name "Datasheet") "http://www.icbank.com/data/ICBShop/board/HY1602E.pdf")
+				(field
+					(name "Description") "LCD 16x2 Alphanumeric 16pin Blue/Yellow/Green Backlight, 8bit parallel, 5V VDD")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "LEDK")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "LEDA")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "VDD")
+					(type "power_in")
+				)
+				(pin
+					(num "4")
+					(name "VSS")
+					(type "power_in")
+				)
+				(pin
+					(num "5")
+					(name "Vo")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "RS")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "R/~{W}")
+					(type "input")
+				)
+				(pin
+					(num "8")
+					(name "E")
+					(type "input")
+				)
+				(pin
+					(num "9")
+					(name "DB0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "10")
+					(name "DB1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "11")
+					(name "DB2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "12")
+					(name "DB3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "13")
+					(name "DB4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "14")
+					(name "DB5")
+					(type "bidirectional")
+				)
+				(pin
+					(num "15")
+					(name "DB6")
+					(type "bidirectional")
+				)
+				(pin
+					(num "16")
+					(name "DB7")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "Mechanical")
+			(part "MountingHole")
+			(description "Mounting Hole without connection")
+			(footprints
+				(fp "MountingHole*")
+			)
+			(fields
+				(field
+					(name "Reference") "H")
+				(field
+					(name "Value") "MountingHole")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Mounting Hole without connection")
+			)
+		)
+		(libpart
+			(lib "Sensor_Pressure")
+			(part "BMP280")
+			(description "Absolute Barometric Pressure Sensor, LGA-8")
+			(docs "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf")
+			(footprints
+				(fp "Bosch*LGA*2x2.5mm*P0.65mm*")
+			)
+			(fields
+				(field
+					(name "Reference") "U3")
+				(field
+					(name "Value") "BMP280")
+				(field
+					(name "Footprint") "Package_LGA:Bosch_LGA-8_2x2.5mm_P0.65mm_ClockwisePinNumbering")
+				(field
+					(name "Datasheet") "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf")
+				(field
+					(name "Description") "Absolute Barometric Pressure Sensor, LGA-8")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VCC")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "SCL")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "SDA")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "CSB")
+					(type "input")
+				)
+				(pin
+					(num "6")
+					(name "SDO")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "USB_FTDI")
+			(part "USB_FTDI")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value")
+				)
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "5V")
+					(type "power_out")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "TX")
+					(type "output")
+				)
+				(pin
+					(num "4")
+					(name "RX")
+					(type "input")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "74xx")
+			(uri "${KICAD10_SYMBOL_DIR}/74xx.kicad_symdir")
+		)
+		(library
+			(logical "AZDelivery")
+			(uri "/home/biozxel/Downloads/software/KiCAD-AZDelivery-main/AZDelivery.kicad_sym")
+		)
+		(library
+			(logical "Adafruit_GPS_V3_RX_TX")
+			(uri "/home/biozxel/.local/share/kicad/7.0/symbols/Adafruit_GPS_V3_RX_TX.kicad_sym")
+		)
+		(library
+			(logical "Connector_Generic")
+			(uri "${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_symdir")
+		)
+		(library
+			(logical "Connector_Generic_MountingPin")
+			(uri "${KICAD10_SYMBOL_DIR}/Connector_Generic_MountingPin.kicad_symdir")
+		)
+		(library
+			(logical "Device")
+			(uri "${KICAD10_SYMBOL_DIR}/Device.kicad_symdir")
+		)
+		(library
+			(logical "Display_Character")
+			(uri "${KICAD10_SYMBOL_DIR}/Display_Character.kicad_symdir")
+		)
+		(library
+			(logical "Mechanical")
+			(uri "${KICAD10_SYMBOL_DIR}/Mechanical.kicad_symdir")
+		)
+		(library
+			(logical "Sensor_Pressure")
+			(uri "${KICAD10_SYMBOL_DIR}/Sensor_Pressure.kicad_symdir")
+		)
+		(library
+			(logical "USB_FTDI")
+			(uri "/home/biozxel/.local/share/kicad/7.0/symbols/USB_FTDI.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "+3.3V")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "2")
+				(pinfunction "VCC_2")
+				(pintype "power_in")
+			)
+			(node
+				(ref "DS2")
+				(pin "1")
+				(pinfunction "VCC_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "3.3V_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U2")
+				(pin "16")
+				(pinfunction "VCC_16")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "2")
+			(name "+5V")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "3")
+				(pinfunction "VDD_3")
+				(pintype "power_in")
+			)
+			(node
+				(ref "RV1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "5V_2")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "3")
+			(name "GND")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "DS2")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "power_in")
+			)
+			(node
+				(ref "DS3")
+				(pin "4")
+				(pinfunction "VSS_4")
+				(pintype "power_in")
+			)
+			(node
+				(ref "RV1")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "GND_3")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U2")
+				(pin "8")
+				(pinfunction "GND_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "4")
+			(name "Net-(DS1-CS)")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "7")
+				(pinfunction "CS_7")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "10")
+				(pinfunction "C3_10")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "5")
+			(name "Net-(DS1-DC)")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "6")
+				(pinfunction "DC_6")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "9")
+				(pinfunction "C2_9")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "6")
+			(name "Net-(DS1-RES)")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "5")
+				(pinfunction "RES_5")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "C1_8")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "7")
+			(name "Net-(DS1-SCL)")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "3")
+				(pinfunction "SCL_3")
+				(pintype "input")
+			)
+			(node
+				(ref "DS2")
+				(pin "3")
+				(pinfunction "SCL_3")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "D0_4")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "SCL_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "8")
+			(name "Net-(DS1-SDA)")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "4")
+				(pinfunction "SDA_4")
+				(pintype "input")
+			)
+			(node
+				(ref "DS2")
+				(pin "4")
+				(pinfunction "SDA_4")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "D1_5")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "SDA_4")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "9")
+			(name "Net-(DS2-CS)")
+			(class "Default")
+			(node
+				(ref "DS2")
+				(pin "6")
+				(pinfunction "CS_6")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "13")
+				(pinfunction "C6_13")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "10")
+			(name "Net-(DS2-DC)")
+			(class "Default")
+			(node
+				(ref "DS2")
+				(pin "5")
+				(pinfunction "DC_5")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "12")
+				(pinfunction "C5_12")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "11")
+			(name "Net-(DS2-RST)")
+			(class "Default")
+			(node
+				(ref "DS2")
+				(pin "7")
+				(pinfunction "RST_7")
+				(pintype "input")
+			)
+			(node
+				(ref "U1")
+				(pin "11")
+				(pinfunction "C4_11")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "12")
+			(name "Net-(DS3-DB4)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "13")
+				(pinfunction "DB4_13")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "5")
+				(pinfunction "QF_5")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "13")
+			(name "Net-(DS3-DB5)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "14")
+				(pinfunction "DB5_14")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "4")
+				(pinfunction "QE_4")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "14")
+			(name "Net-(DS3-DB6)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "15")
+				(pinfunction "DB6_15")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "QD_3")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "15")
+			(name "Net-(DS3-DB7)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "16")
+				(pinfunction "DB7_16")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "QC_2")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "16")
+			(name "Net-(DS3-E)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "8")
+				(pinfunction "E_8")
+				(pintype "input")
+			)
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "QB_1")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "17")
+			(name "Net-(DS3-LEDA)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "2")
+				(pinfunction "LEDA_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "6")
+				(pinfunction "QG_6")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "18")
+			(name "Net-(DS3-LEDK)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "1")
+				(pinfunction "LEDK_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "DS3")
+				(pin "7")
+				(pinfunction "R/~{W}_7")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "19")
+			(name "Net-(DS3-RS)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "6")
+				(pinfunction "RS_6")
+				(pintype "input")
+			)
+			(node
+				(ref "U2")
+				(pin "15")
+				(pinfunction "QA_15")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "20")
+			(name "Net-(DS3-Vo)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "5")
+				(pinfunction "Vo_5")
+				(pintype "input")
+			)
+			(node
+				(ref "RV1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "21")
+			(name "Net-(J1-5V)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "5V_1")
+				(pintype "power_out")
+			)
+			(node
+				(ref "U4")
+				(pin "8")
+				(pinfunction "VIN_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "22")
+			(name "Net-(J1-GND)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U4")
+				(pin "7")
+				(pinfunction "GND_7")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "23")
+			(name "Net-(J1-RX)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "4")
+				(pinfunction "RX_4")
+				(pintype "input")
+			)
+			(node
+				(ref "U4")
+				(pin "5")
+				(pinfunction "TX_5")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "24")
+			(name "Net-(J1-TX)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "3")
+				(pinfunction "TX_3")
+				(pintype "output")
+			)
+			(node
+				(ref "U4")
+				(pin "6")
+				(pinfunction "RX_6")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "25")
+			(name "Net-(U1-C7)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "14")
+				(pinfunction "C7_14")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "5")
+				(pinfunction "CSB_5")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "26")
+			(name "Net-(U1-D2)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "6")
+				(pinfunction "D2_6")
+				(pintype "input")
+			)
+			(node
+				(ref "U3")
+				(pin "6")
+				(pinfunction "SDO_6")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "27")
+			(name "Net-(U1-D6)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "7")
+				(pinfunction "D6_7")
+				(pintype "input")
+			)
+			(node
+				(ref "U2")
+				(pin "12")
+				(pinfunction "RCLK_12")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "28")
+			(name "Net-(U3-VCC)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "1")
+				(pinfunction "VCC_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U4")
+				(pin "1")
+				(pinfunction "3.3V_1")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "29")
+			(name "unconnected-(DS1-BLK-Pad8)")
+			(class "Default")
+			(node
+				(ref "DS1")
+				(pin "8")
+				(pinfunction "BLK_8")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "30")
+			(name "unconnected-(DS3-DB0-Pad9)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "9")
+				(pinfunction "DB0_9")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "31")
+			(name "unconnected-(DS3-DB1-Pad10)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "10")
+				(pinfunction "DB1_10")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "32")
+			(name "unconnected-(DS3-DB2-Pad11)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "11")
+				(pinfunction "DB2_11")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "33")
+			(name "unconnected-(DS3-DB3-Pad12)")
+			(class "Default")
+			(node
+				(ref "DS3")
+				(pin "12")
+				(pinfunction "DB3_12")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "34")
+			(name "unconnected-(U2-QH'-Pad9)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "9")
+				(pinfunction "QH'_9")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "35")
+			(name "unconnected-(U2-QH-Pad7)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "7")
+				(pinfunction "QH_7")
+				(pintype "tri_state")
+			)
+		)
+		(net
+			(code "36")
+			(name "unconnected-(U2-SER-Pad14)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "14")
+				(pinfunction "SER_14")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "37")
+			(name "unconnected-(U2-SRCLK-Pad11)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "11")
+				(pinfunction "SRCLK_11")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "38")
+			(name "unconnected-(U2-~{OE}-Pad13)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "13")
+				(pinfunction "~{OE}_13")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "39")
+			(name "unconnected-(U2-~{SRCLR}-Pad10)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "10")
+				(pinfunction "~{SRCLR}_10")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "40")
+			(name "unconnected-(U4-EN-Pad2)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "2")
+				(pinfunction "EN_2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "41")
+			(name "unconnected-(U4-FIX-Pad4)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "4")
+				(pinfunction "FIX_4")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "42")
+			(name "unconnected-(U4-PPS-Pad9)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "9")
+				(pinfunction "PPS_9")
+				(pintype "power_out")
+			)
+		)
+		(net
+			(code "43")
+			(name "unconnected-(U4-VBAT-Pad3)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "3")
+				(pinfunction "VBAT_3")
+				(pintype "input")
+			)
+		)
+	)
+)
